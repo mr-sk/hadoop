@@ -64,4 +64,29 @@ See the contents of the following files in this repository:
 * mapred-site.xml
 * hdfs-site.xml
 
+###### Prepare Hadoop Input
+For this example, I'm performing the "Hello World" of Map Reduce, which is "Word Count". I've downloaded three
+Project Gutenberg UTF-8 books and placed them in the "/tmp/gutenberg" which I will copy to HDFS "/gutenberg_input".
+
+```
+hadoop dfs -copyFromLocal /tmp/gutenberg /gutenberg_input
+```
+
+###### Execute Hadoop Job
+```
+hadoop jar wordcount.jar org.myorg.WordCount /gutenberg_input /gutenberg_output
+```
+
+After the job completes, view the output and copy from HDFS: 
+```
+hls /gutenberg_output
+
+Found 2 items
+-rw-r--r--   1 hduser supergroup          0 2013-11-25 23:44 /gutenberg_output/_SUCCESS
+-rw-r--r--   1 hduser supergroup     880838 2013-11-25 23:44 /gutenberg_output/part-r-00000
+
+hadoop dfs -getmerge /gutenberg_output /tmp/gutenberg_outputless
+tail -n 400 /tmp/gutenberg_output
+```
+
 

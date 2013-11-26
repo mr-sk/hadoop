@@ -63,6 +63,7 @@ See the contents of the following files in this repository:
 * core-site.xml
 * mapred-site.xml
 * hdfs-site.xml
+* /usr/local/hadoop/etc/hadoop (log4j.properties)
 
 ###### Prepare Hadoop Input
 For this example, I'm performing the "Hello World" of Map Reduce, which is "Word Count". I've downloaded three
@@ -109,5 +110,7 @@ mvn package
 
 hadoop fs -mkdir /tmp
 hadoop fs -put test-data/ch1/* /tmp/
+
+/usr/lib/jvm/java-7-oracle/bin/java -Xmx512m -Djava.library.path=/usr/local/hadoop/lib/native/Linux-amd64-64 -classpath :/home/ubuntu/.m2/repository/org/apache/hadoop/hadoop-core/0.20.2-cdh3u2/*.jar:/home/hduser/hadoop-book/target/hadoop-book-1.0.0-SNAPSHOT-jar-with-dependencies.jar com.manning.hip.ch1.InvertedIndexMapReduce /file1.txt /file2.txt output
 ```
 

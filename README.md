@@ -113,9 +113,26 @@ echo "foo foo quuz labs foo bar quuz" | ./mapper.py  | sort -k1,1 | ./reducer.py
 bar	1
 foo	3
 labs	1
+quuz	2
 ```
 
 Now we'll execute them with Hadoop.
+(I've included the streaming 2.2 .jar in the repo as well)
+
+```
+hadoop jar hadoop-streaming-2.2.0.jar -file mapper.py -mapper mapper.py -file reducer.py  -reducer reducer.py -input /gutenberg_input -output /gutenburg_output_python
+...
+...
+hadoop dfs -cat /gutenburg_output_python/part-00000 | more
+"(Lo)cra"	1
+"1490	1
+"1498,"	1
+"35"	1
+"40,"	1
+"A	2
+"AS-IS".	1
+...
+```
 
 
 

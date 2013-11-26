@@ -98,3 +98,16 @@ write	62
 ```
 
 
+### Hadoop In Practice
+Once the above is complete, move onto the "Hadoop In Practice" exercises. 
+
+###### Test Package Installation
+```
+git clone git://github.com/alexholmes/hadoop-book.git
+cd hadoop-book
+mvn package
+
+hadoop fs -mkdir /tmp
+hadoop fs -put test-data/ch1/* /tmp/
+```
+

@@ -87,6 +87,14 @@ Found 2 items
 
 hadoop dfs -getmerge /gutenberg_output /tmp/gutenberg_output
 tail -n 400 /tmp/gutenberg_output
+wristbangles	1
+wristlet,	1
+wrists	1
+wrists,	1
+writ	4
+writ.	1
+write	62
+...
 ```
 
 

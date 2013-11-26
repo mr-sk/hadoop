@@ -85,7 +85,7 @@ Found 2 items
 -rw-r--r--   1 hduser supergroup          0 2013-11-25 23:44 /gutenberg_output/_SUCCESS
 -rw-r--r--   1 hduser supergroup     880838 2013-11-25 23:44 /gutenberg_output/part-r-00000
 
-hadoop dfs -getmerge /gutenberg_output /tmp/gutenberg_outputless
+hadoop dfs -getmerge /gutenberg_output /tmp/gutenberg_output
 tail -n 400 /tmp/gutenberg_output
 ```
 

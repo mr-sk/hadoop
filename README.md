@@ -75,6 +75,8 @@ hadoop dfs -copyFromLocal /tmp/gutenberg /gutenberg_input
 
 ###### Execute Hadoop Job
 ```
+javac -classpath /home/ubuntu/.m2/repository/org/apache/hadoop/hadoop-core/0.20.2-cdh3u2/hadoop-core-0.20.2-cdh3u2.jar -d wordcount_classes WordCount.java
+jar -cvf wordcount.jar -C wordcount_classes/ .
 hadoop jar wordcount.jar org.myorg.WordCount /gutenberg_input /gutenberg_output
 ```
 

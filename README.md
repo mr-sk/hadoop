@@ -112,5 +112,7 @@ hadoop fs -mkdir /tmp
 hadoop fs -put test-data/ch1/* /tmp/
 
 /usr/lib/jvm/java-7-oracle/bin/java -Xmx512m -Djava.library.path=/usr/local/hadoop/lib/native/Linux-amd64-64 -classpath :/home/ubuntu/.m2/repository/org/apache/hadoop/hadoop-core/0.20.2-cdh3u2/*.jar:/home/hduser/hadoop-book/target/hadoop-book-1.0.0-SNAPSHOT-jar-with-dependencies.jar com.manning.hip.ch1.InvertedIndexMapReduce /file1.txt /file2.txt output
+
+/usr/lib/jvm/java-7-oracle/bin/java -Xmx512m -Djava.library.path=/usr/local/hadoop/lib/native/Linux-amd64-64 -classpath :/usr/local/hadoop/*.jar:/usr/lib/hadoop-hdfs//*.jar:/usr/lib/hadoop-yarn/*.jar:/usr/lib/hadoop-0.20-mapreduce/*.jar::/usr/local/hadoop/lib/*.jar::/usr/local/hadoop/etc/hadoop:/home/hduser/hadoop-book/target/hadoop-book-1.0.0-SNAPSHOT-jar-with-dependencies.jar com.manning.hip.ch1.InvertedIndexMapReduce /file1.txt /file2.txt outpu
 ```
 

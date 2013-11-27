@@ -151,6 +151,34 @@ fat b.txt
 cat a.txt,b.txt
 ```
 
+Copy the files into HDFS
+```
+hdfs dfs -mkdir /inverted_index_input
+hdfs dfs -put a.txt /inverted_index_input/a.txt
+hdfs dfs -put b.txt /inverted_index_input/b.txt
+hdfs dfs -ls /inverted_index_input/
+-rw-r--r--   1 hduser supergroup         18 2013-11-27 20:01 /inverted_index_input/a.txt
+-rw-r--r--   1 hduser supergroup         18 2013-11-27 20:02 /inverted_index_input/b.txt
+```
+
+Now execute the hadoop job:
+```
+hadoop jar ../hadoop-streaming-2.2.0.jar -file mapper.py -mapper mapper.py -file reducer.py -reducer reducer.py -input /inverted_index_input/ -output /inverted_index_output_python
+```
+
+Check the output:
+```
+hdfs dfs -ls /inverted_index_input/
+-rw-r--r--   1 hduser supergroup          0 2013-11-27 20:03 /inverted_index_output_python/_SUCCESS
+-rw-r--r--   1 hduser supergroup         61 2013-11-27 20:03 /inverted_index_output_python/part-00000
+
+hdfs dfs -cat /inverted_index_output_python/part-00000
+bat b.txt	
+sat a.txt	
+mat a.txt	
+fat b.txt	
+cat a.txt,b.txt	
+```
 
 
 

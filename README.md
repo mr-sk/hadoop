@@ -101,7 +101,7 @@ write	62
 ```
 
 
-### MapReduce in Python
+### MapReduce I: Word Count in Python
 
 Using the mapper and reducer written in python included in the repository:
 * mapper.py
@@ -132,6 +132,23 @@ hadoop dfs -cat /gutenburg_output_python/part-00000 | more
 "A	2
 "AS-IS".	1
 ...
+```
+
+### MapReduce II: Inverted Index in Python
+
+Based on the Java Iverted Index (but ghetto simplified) see the python files included in the repo:
+* inverted_index/mapper.py
+* inverted_index/reducer.ph
+* inverted_index/a.txt, b.txt
+
+Test they are running:
+```
+cat a.txt b.txt | ./mapper.py | ./reducer.py 
+bat b.txt
+sat a.txt
+mat a.txt
+fat b.txt
+cat a.txt,b.txt
 ```
 
 
